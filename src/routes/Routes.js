@@ -7,8 +7,8 @@ import NotFound from "../pages/NotFound/NotFound";
 import Gallery from "../pages/Gallery/Gallery";
 
 import SignIn from "../components/Auth/SignIn";
-import SignUp from "../components/Auth/SignIn";
-import Reset from "../components/Auth/SignIn";
+import SignUp from "../components/Auth/SignUp";
+import Reset from "../components/Auth/Reset";
 
 import GalleryList from "../components/Gallery/GalleryList";
 
