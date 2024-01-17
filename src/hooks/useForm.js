@@ -28,6 +28,8 @@ export const useForm = (callback, validate) => {
   const handleSubmit = (e) => {
     if (e) e.preventDefault();
     setErrors(validate(values));
+    console.log("Handle");
+    console.log(errors);
     setIsSubmitting(true);
   };
 

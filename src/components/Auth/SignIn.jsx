@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
+import Input from "../Form/Input";
 
-const validate = (values) => {
+const validateLogin = (values) => {
   let errors = [];
 
   if (!values.email) {
@@ -23,7 +24,7 @@ const login = (values) => {
 const SignIn = () => {
   const { values, errors, handleChange, handleSubmit } = useForm(
     login,
-    validate
+    validateLogin
   );
 
   useEffect(() => {
@@ -39,39 +40,27 @@ const SignIn = () => {
             <h2 className="text-center">Sign In</h2>
           </div>
         </div>
-        <form className="signin-form" onSubmit={handleSubmit}>
-          <div className="form-group mt-3">
-            <input
+        <form className="signin-form mt-3" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <Input
+              label="Email"
               name="email"
-              id="email"
               type="text"
-              className={`form-control ${errors.email && "is-invalid"}`}
-              value={values.email || ""}
+              value={values.email}
+              error={errors.email}
               onChange={handleChange}
             />
-            <label htmlFor="email" className="form-control-placeholder">
-              Email
-            </label>
-            {errors.email && (
-              <small className="text-danger">{errors.email}</small>
-            )}
           </div>
 
           <div className="form-group">
-            <input
+            <Input
+              label="Password"
               name="password"
-              id="password"
               type="password"
-              className={`form-control ${errors.password && "is-invalid"}`}
-              value={values.password || ""}
+              value={values.password}
+              error={errors.password}
               onChange={handleChange}
             />
-            <label htmlFor="password" className="form-control-placeholder">
-              Password
-            </label>
-            {errors.password && (
-              <small className="text-danger">{errors.password}</small>
-            )}
           </div>
           <div className="form-group">
             <button className="form-control btn btn-primary rounded submit px-3">
