@@ -17,6 +17,10 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../config/firebase.config";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 function ProtectedRoutes() {
   return [
@@ -56,11 +60,31 @@ function PublicRoutes() {
 }
 
 export const Routes = () => {
-  const isAllowed = false;
+  const [user, loading, error] = useAuthState(auth);
+  const [isAllowed, setIsAllowed] = useState(false);
+
+  useLayoutEffect(() => {
+    if (loading) {
+      console.log("Loading....");
+      return;
+    }
+    if (user) {
+      setIsAllowed(true);
+      console.log(user);
+    }
+  }, [user, loading]);
+
+  // if (user) {
+  //   isAllowed = true;
+  // }
+
+  console.log(loading);
 
   const router = createBrowserRouter(
     isAllowed ? [...ProtectedRoutes(), ...PublicRoutes()] : [...PublicRoutes()]
   );
+
+  if (loading) return;
 
   return <RouterProvider router={router} />;
 };

@@ -1,35 +1,49 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import Input from "../Form/Input";
-
-const validateLogin = (values) => {
-  let errors = [];
-
-  if (!values.email) {
-    errors.email = "Email address is required";
-  } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-    errors.email = "Email address is invalid";
-  }
-
-  if (!values.password) errors.password = "Password is required";
-
-  return errors;
-};
-
-const login = (values) => {
-  console.log(`run login with: ${values.email} ${values.password}`);
-};
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/firebase.config";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const SignIn = () => {
+  const navigate = useNavigate();
+  const [fbError, setFbError] = useState("");
+
+  const validateLogin = (values) => {
+    let errors = [];
+
+    if (!values.email) {
+      errors.email = "Email address is required";
+    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+      errors.email = "Email address is invalid";
+    }
+
+    if (!values.password) errors.password = "Password is required";
+
+    return errors;
+  };
+
+  const login = async (values) => {
+    console.log(`run login with: ${values.email} ${values.password}`);
+    const { email, password } = values;
+    await signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        // const user = userCredential.user;
+        navigate("/");
+      })
+      .catch((error) => {
+        setFbError(error.message);
+      });
+  };
+
   const { values, errors, handleChange, handleSubmit } = useForm(
     login,
     validateLogin
   );
 
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
+  useEffect(() => {}, [errors]);
 
   return (
     <>
@@ -40,6 +54,11 @@ const SignIn = () => {
             <h2 className="text-center">Sign In</h2>
           </div>
         </div>
+        {fbError && (
+          <div className="alert alert-warning mb-5" role="alert">
+            {fbError}
+          </div>
+        )}
         <form className="signin-form mt-3" onSubmit={handleSubmit}>
           <div className="form-group">
             <Input
