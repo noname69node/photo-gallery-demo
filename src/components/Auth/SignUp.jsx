@@ -5,31 +5,13 @@ import Input from "../Form/Input";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../config/firebase.config";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { validateRegister } from "../../utils/validation";
+import Button from "../Form/Button";
 
 const SignUp = () => {
   const [fbError, setFbError] = useState("");
   const usersCollectionRef = collection(db, "users");
   const navigate = useNavigate();
-
-  // Form validation for SignUp/Register inputs
-  // TODO move to seperate file (utils)
-  const validateRegister = (values) => {
-    let errors = [];
-
-    if (!values.fullname) errors.fullname = "Full name is required";
-
-    if (!values.email) {
-      errors.email = "Email address is required";
-    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-      errors.email = "Email address is invalid";
-    }
-
-    if (!values.password) errors.password = "Password is required";
-    else if (values.password !== values.confirm_password)
-      errors.confirm_password = "Password doesn't match";
-
-    return errors;
-  };
 
   // Funtion for user registration
   // TODO move to seperate file (services)
@@ -123,9 +105,7 @@ const SignUp = () => {
             />
           </div>
           <div className="form-group">
-            <button className="form-control btn btn-primary rounded submit px-3">
-              Sign In
-            </button>
+            <Button>Sign Up</Button>
           </div>
         </form>
         <p className="text-center">

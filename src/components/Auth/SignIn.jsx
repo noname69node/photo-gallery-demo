@@ -5,24 +5,12 @@ import Input from "../Form/Input";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { validateLogin } from "../../utils/validation";
+import Button from "../Form/Button";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const [fbError, setFbError] = useState("");
-
-  const validateLogin = (values) => {
-    let errors = [];
-
-    if (!values.email) {
-      errors.email = "Email address is required";
-    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-      errors.email = "Email address is invalid";
-    }
-
-    if (!values.password) errors.password = "Password is required";
-
-    return errors;
-  };
 
   const login = async (values) => {
     console.log(`run login with: ${values.email} ${values.password}`);
@@ -82,9 +70,7 @@ const SignIn = () => {
             />
           </div>
           <div className="form-group">
-            <button className="form-control btn btn-primary rounded submit px-3">
-              Sign In
-            </button>
+            <Button>Sign In</Button>
           </div>
           <div className="form-group text-center">
             <Link to="/auth/reset">Forgot Password</Link>

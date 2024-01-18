@@ -9,7 +9,7 @@ const Input = (props) => {
         name={name}
         id={name}
         autoComplete="off"
-        required
+        // required
         className={`form-control ${error && "is-invalid"}`}
         value={value || ""}
       />

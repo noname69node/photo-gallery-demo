@@ -2,20 +2,10 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Input from "../Form/Input";
 import { useForm } from "../../hooks/useForm";
+import { validateReset } from "../../utils/validation";
+import Button from "../Form/Button";
 
 const Reset = () => {
-  const validateReset = (values) => {
-    let errors = [];
-
-    if (!values.email) {
-      errors.email = "Email address is required";
-    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-      errors.email = "Email address is invalid";
-    }
-
-    return errors;
-  };
-
   const resetPassword = (values) => {
     console.log(`run reset password with: ${values.email}`);
   };
@@ -52,9 +42,7 @@ const Reset = () => {
         </div>
 
         <div className="form-group">
-          <button className="form-control btn btn-primary rounded submit px-3">
-            Reset Password
-          </button>
+          <Button>Reset</Button>
         </div>
       </form>
       <p className="text-center">

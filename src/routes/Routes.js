@@ -1,26 +1,25 @@
 import MainLayout from "../layouts/MainLayout";
 import AuthLayout from "../layouts/AuthLayout";
 
-import Profile from "../pages/Profile/Profile";
 import Home from "../pages/Home/Home";
+// import Profile from "../pages/Profile/Profile";
+// import Gallery from "../pages/Gallery/Gallery";
 import NotFound from "../pages/NotFound/NotFound";
-import Gallery from "../pages/Gallery/Gallery";
 
 import SignIn from "../components/Auth/SignIn";
 import SignUp from "../components/Auth/SignUp";
 import Reset from "../components/Auth/Reset";
 
-import GalleryList from "../components/Gallery/GalleryList";
+//import GalleryList from "../components/Gallery/GalleryList";
 
 import {
   Navigate,
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 function ProtectedRoutes() {
   return [
@@ -29,15 +28,15 @@ function ProtectedRoutes() {
       element: <MainLayout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "profile", element: <Profile /> },
-        {
-          path: "gallery",
-          element: <Gallery />,
-          children: [
-            { index: true, element: <GalleryList /> },
-            { path: ":imageId", element: <>with id</> },
-          ],
-        },
+        // { path: "profile", element: <Profile /> },
+        // {
+        //   path: "gallery",
+        //   element: <Gallery />,
+        //   children: [
+        //     { index: true, element: <GalleryList /> },
+        //     { path: ":imageId", element: <>with id</> },
+        //   ],
+        // },
       ],
     },
     { path: "*", element: <NotFound /> },
