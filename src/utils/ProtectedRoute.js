@@ -1,8 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { useUserAuth } from "../context/UserAuthContext";
 
-const ProtectedRoute = ({ isAllowed, redirectPath = "/auth", children }) => {
-  if (!isAllowed) {
-    return <Navigate to={redirectPath} replace />;
+const ProtectedRoute = ({ children }) => {
+  const { user } = useUserAuth();
+  if (!user) {
+    return <Navigate to={"/auth"} replace />;
   }
 
   return children ? children : <Outlet />;

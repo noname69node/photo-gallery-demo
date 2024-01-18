@@ -2,20 +2,19 @@ import React, { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Outlet, useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase.config";
+import { useUserAuth } from "../context/UserAuthContext";
 
 const AuthLayout = () => {
-  const [user, loading, error] = useAuthState(auth);
+  // const [user, loading, error] = useAuthState(auth);
+  const { user } = useUserAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loading) {
-      // maybe trigger a loading screen
-      return;
-    }
     if (user) {
       navigate("/");
     }
-  }, [user, loading]);
+    return;
+  }, [user]);
 
   return (
     <section className="auth vh-100 d-flex align-items-center">

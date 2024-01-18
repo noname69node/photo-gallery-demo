@@ -1,45 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import { useForm } from "../../hooks/useForm";
+
 import Input from "../Form/Input";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../../config/firebase.config";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { validateRegister } from "../../utils/validation";
 import Button from "../Form/Button";
 
+import { validateRegister } from "../../utils/validation";
+import { register } from "../../services/user.service";
+
 const SignUp = () => {
-  const [fbError, setFbError] = useState("");
-  const usersCollectionRef = collection(db, "users");
-  const navigate = useNavigate();
-
-  // Funtion for user registration
-  // TODO move to seperate file (services)
-  const register = async (values) => {
-    console.log(
-      `run register with: ${values.fullname} ${values.email} ${values.password}`
-    );
-    const { email, password, fullname } = values;
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then(async (userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        await addDoc(usersCollectionRef, {
-          fullname,
-          email,
-          userId: user.uid,
-          createdAt: serverTimestamp(),
-        })
-          .then(console.log(`User ${user.uid} created`))
-          .catch((error) => console.log(error));
-        navigate("/");
-      })
-      .catch((error) => {
-        setFbError(error.message);
-        console.log(error.code, error.message);
-      });
-  };
-
   const { values, errors, handleChange, handleSubmit } = useForm(
     register,
     validateRegister
@@ -48,7 +18,7 @@ const SignUp = () => {
   useEffect(() => {}, [errors]);
 
   // SignUp/Registration form
-  // TODO do Component for form, button, alert
+  // TODO do Component for form, alert
   return (
     <>
       <div className="img-reg"></div>
@@ -58,9 +28,9 @@ const SignUp = () => {
             <h2 className="text-center">Register</h2>
           </div>
         </div>
-        {fbError && (
+        {errors.firebase && (
           <div className="alert alert-warning mb-5" role="alert">
-            {fbError}
+            {errors.firebase}
           </div>
         )}
         <form className="signin-form" onSubmit={handleSubmit}>

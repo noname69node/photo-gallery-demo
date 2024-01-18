@@ -9,7 +9,7 @@ export const useForm = (callback, validate) => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       console.log("no errors can call callback");
       setIsSubmitting(false);
-      callback(values);
+      callback(values, setErrors);
     }
   }, [errors]);
 
@@ -28,8 +28,6 @@ export const useForm = (callback, validate) => {
   const handleSubmit = (e) => {
     if (e) e.preventDefault();
     setErrors(validate(values));
-    console.log("Handle");
-    console.log(errors);
     setIsSubmitting(true);
   };
 

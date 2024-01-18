@@ -2,11 +2,12 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { auth } from "../../config/firebase.config";
 import { useNavigate } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useUserAuth } from "../../context/UserAuthContext";
 
 const Header = () => {
   const navigate = useNavigate();
-  const [user, loading, error] = useAuthState(auth);
+
+  const { user, userInfo } = useUserAuth();
 
   // Logout
   const handleLogout = () => {
@@ -47,12 +48,12 @@ const Header = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                full name
+                {userInfo.fullname && userInfo.fullname}
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li class="dropdown-item">
                   <a class="dropdown-item" href="/">
-                    {user.email}
+                    {user.email && user.email}
                   </a>
                 </li>
                 <li class="dropdown-item">
