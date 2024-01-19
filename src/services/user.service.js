@@ -13,7 +13,6 @@ import {
   serverTimestamp,
   where,
 } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
 
 const usersCollectionRef = collection(db, "users");
 

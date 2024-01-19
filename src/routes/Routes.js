@@ -1,8 +1,6 @@
 import MainLayout from "../layouts/MainLayout";
 import AuthLayout from "../layouts/AuthLayout";
 
-import Home from "../pages/Home/Home";
-import Profile from "../pages/Profile/Profile";
 import Gallery from "../pages/Gallery/Gallery";
 import NotFound from "../pages/NotFound/NotFound";
 
@@ -27,7 +25,6 @@ function ProtectedRoutes() {
       element: <MainLayout />,
       children: [
         { index: true, element: <Gallery /> },
-        { path: "profile", element: <Profile /> },
         {
           path: "gallery",
           element: <Gallery />,
