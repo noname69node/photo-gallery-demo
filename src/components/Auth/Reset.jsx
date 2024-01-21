@@ -4,20 +4,18 @@ import Input from "../Form/Input";
 import { useForm } from "../../hooks/useForm";
 import { validateReset } from "../../utils/validation";
 import Button from "../Form/Button";
+import { resetPassword } from "../../services/user.service";
 
 const Reset = () => {
-  const resetPassword = (values) => {
-    console.log(`run reset password with: ${values.email}`);
-  };
+  // const resetPassword = (values) => {
+  //   console.log(`run reset password with: ${values.email}`);
+
+  // };
 
   const { values, errors, handleChange, handleSubmit } = useForm(
     resetPassword,
     validateReset
   );
-
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
 
   return (
     <div className="login-wrap p-4 p-md-5">

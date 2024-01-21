@@ -9,18 +9,14 @@ const Header = () => {
 
   const { user, userInfo, setIsLogged } = useUserAuth();
 
-  // Logout
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
         setIsLogged(false);
         navigate("/auth");
         console.log("Signed out successfully");
       })
-      .catch((error) => {
-        // An error happened.
-      });
+      .catch((error) => {});
   };
 
   return (
@@ -29,7 +25,7 @@ const Header = () => {
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
             <a className="navbar-brand" href="/">
-              Navbar
+              Holliday Photos
             </a>
             <button
               className="navbar-toggler"

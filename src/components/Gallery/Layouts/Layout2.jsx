@@ -1,7 +1,14 @@
 import React from "react";
+import Photo from "../Photo";
 
-const Layout2 = () => {
-  return <div>Layout2</div>;
+const Layout2 = ({ images }) => {
+  return (
+    <div className="layout2">
+      {images.map((image) => {
+        return <Photo key={image.id} image={image} />;
+      })}
+    </div>
+  );
 };
 
 export default Layout2;

@@ -7,7 +7,7 @@ import Layout4 from "./Layouts/Layout4";
 import Layout5 from "./Layouts/Layout5";
 import Layout6 from "./Layouts/Layout6";
 import Layout7 from "./Layouts/Layout7";
-import Layout8 from "./Layouts/Layout4";
+import Layout8 from "./Layouts/Layout8";
 
 const GalleryList = ({ images, layout }) => {
   const layoutComponents = {
