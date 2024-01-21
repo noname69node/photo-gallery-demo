@@ -1,16 +1,15 @@
 import React from "react";
 import "./layouts.scss";
+import Photo from "../Photo";
 
 const Layout4 = ({ images }) => {
   return (
     <div className="layout4">
-      {images.map((image) => {
-        return (
-          <div key={image.id} className="layout4-item">
-            <img className="img-fluid" src={image.url} alt="" />
-          </div>
-        );
-      })}
+      <div className="layout4-item">
+        {images.map((image) => {
+          return <Photo key={image.id} image={image} />;
+        })}
+      </div>
     </div>
   );
 };

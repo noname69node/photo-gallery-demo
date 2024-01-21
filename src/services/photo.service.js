@@ -1,6 +1,8 @@
 import {
   addDoc,
   collection,
+  deleteDoc,
+  doc,
   onSnapshot,
   query,
   serverTimestamp,
@@ -39,4 +41,7 @@ export const addPhoto = async (userId, url) => {
   }
 };
 
-export const deletePhoto = () => {};
+export const deletePhoto = async (pid) => {
+  const photosDocRef = doc(photosCollectionRef, pid);
+  await deleteDoc(photosDocRef).catch((e) => console.log(e));
+};
