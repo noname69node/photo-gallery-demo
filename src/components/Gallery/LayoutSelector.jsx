@@ -1,28 +1,44 @@
-import React from "react";
+import "./Gallery.scss";
 
-const LayoutSelector = () => {
+const LayoutSelector = ({ onSelectLayout }) => {
+  const numberOfLayouts = 9;
+  const layoutImages = [];
+
+  for (let i = 0; i < numberOfLayouts; i++) {
+    const layoutImage = require(`../../assets/images/layout${i}.jpg`);
+    layoutImages.push(layoutImage);
+  }
+
   return (
-    <div class="dropdown">
+    <div className="dropdown px-2">
       <button
-        class="btn btn-secondary dropdown-toggle"
+        className="btn btn-primary dropdown-toggle"
         type="button"
         id="dropdownMenuButton"
-        data-toggle="dropdown"
+        data-bs-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
       >
-        Dropdown button
+        Change Layout
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">
-          Action
-        </a>
-        <a class="dropdown-item" href="#">
-          Another action
-        </a>
-        <a class="dropdown-item" href="#">
-          Something else here
-        </a>
+      <div
+        className="dropdown-menu layout-selector"
+        aria-labelledby="dropdownMenuButton"
+      >
+        <h2 className="layout-selector__header mb-2">Format</h2>
+        <div className="layout-selector__images">
+          {layoutImages.map((image, index) => (
+            <img
+              className="layout-selector__images__img"
+              onClick={() => {
+                onSelectLayout(`layout${index}`);
+              }}
+              key={index}
+              src={image}
+              alt={`Layout ${index}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

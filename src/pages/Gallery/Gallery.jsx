@@ -7,7 +7,7 @@ import { useUserAuth } from "../../context/UserAuthContext";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
-  const [layout, setLayout] = useState("");
+  const [layout, setLayout] = useState("default");
 
   const { user } = useUserAuth();
 

@@ -1,0 +1,24 @@
+.layout-selector.show {
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 15px 30px;
+	border-radius: 20px;
+	border: 2px solid white;
+
+	.layout-selector__header {
+		color: white;
+		text-align: center;
+		margin: 0;
+	}
+
+	.layout-selector__images {
+		display: grid !important;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 15px;
+
+
+		.layout-selector__images__img {
+			cursor: pointer;
+            width: 80px;
+		}
+	}
+}
