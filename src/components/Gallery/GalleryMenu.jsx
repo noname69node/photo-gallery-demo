@@ -13,13 +13,13 @@ const GalleryMenu = ({ onAddPicture }) => {
   };
 
   return (
-    <div className="container">
-      <LayoutSelector />
+    <div className="container d-flex">
       <AddPhotoModal
         imageUrl={imageUrl}
         setImageUrl={setImageUrl}
         onAddPicture={handleAddPhoto}
       />
+      <LayoutSelector />
     </div>
   );
 };

@@ -1,10 +1,14 @@
 import React, { useRef } from "react";
 import * as bootstrap from "bootstrap/dist/js/bootstrap";
 import Input from "../Form/Input";
+import { useForm } from "../../hooks/useForm";
+import { validateURL } from "../../utils/validation";
 
 const { Modal } = bootstrap;
 
 const AddPhotoModal = ({ imageUrl, setImageUrl, onAddPicture }) => {
+  //const { values, errors, handleChange, handleSubmit } = useForm(onAddPicture, validateURL)
+
   const modalRef = useRef();
 
   const showModal = () => {

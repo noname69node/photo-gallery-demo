@@ -8,7 +8,11 @@ import SignIn from "../components/Auth/SignIn";
 import SignUp from "../components/Auth/SignUp";
 import Reset from "../components/Auth/Reset";
 
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  createHashRouter,
+} from "react-router-dom";
 
 export const Routes = () => {
   const r = [
@@ -29,7 +33,7 @@ export const Routes = () => {
     { path: "*", element: <NotFound /> },
   ];
 
-  const router = createBrowserRouter(r);
+  const router = createHashRouter(r);
 
   return <RouterProvider router={router} />;
 };

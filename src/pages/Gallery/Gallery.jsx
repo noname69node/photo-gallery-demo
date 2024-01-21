@@ -17,11 +17,8 @@ const Gallery = () => {
 
   useEffect(() => {
     const fetchImages = async () => {
-      setImages([{}, {}]);
-
       try {
-        const data = await getAllUserPhotos(user.uid, setImages);
-        console.log("images: " + images);
+        await getAllUserPhotos(user.uid, setImages);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
