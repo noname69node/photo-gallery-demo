@@ -7,23 +7,34 @@ const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
   const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       const info = await getUser();
-      setUser(currentUser);
-      setUserInfo(info);
-      console.log(user);
+
+      setLoading(false);
+
+      if (currentUser) {
+        setUser(currentUser);
+        setUserInfo(info);
+        setIsLogged(true);
+      }
+
+      setLoading(false);
     });
     return () => {
-      unsubscribe();
+      if (unsubscribe) unsubscribe();
     };
-  }, []);
+  }, [user, isLogged]);
 
   return (
-    <userAuthContext.Provider value={{ user, userInfo }}>
-      {children}
+    <userAuthContext.Provider
+      value={{ user, loading, isLogged, userInfo, setIsLogged }}
+    >
+      {!loading && children}
     </userAuthContext.Provider>
   );
 }

@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 
-const GalleryList = () => {
+const GalleryList = ({ images, layout }) => {
   return (
-    <div>
-      <ul>
-        <Link to="/gallery/1">List1</Link>
-        <li>List2</li>
-        <li>List3</li>
-        <li>List4</li>
-      </ul>
+    <div className="container">
+      {images.map((image) => {
+        return <img className="img-fluid" src={image.url} />;
+      })}
     </div>
   );
 };

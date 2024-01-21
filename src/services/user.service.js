@@ -17,17 +17,17 @@ import {
 const usersCollectionRef = collection(db, "users");
 
 // Creating User in firestore
-const createUser = async ({ user, fullname, email }) => {
-  await addDoc(usersCollectionRef, {
-    fullname,
-    email,
-    userId: user.uid,
-    createdAt: serverTimestamp(),
-  })
-    .then(console.log(`User ${user.uid} created`))
-    .catch((error) => {
-      console.log(error.message);
+const createUser = async (uid, fullname, email) => {
+  try {
+    const newUserRef = await addDoc(usersCollectionRef, {
+      fullname,
+      email,
+      userId: uid,
+      createdAt: serverTimestamp(),
     });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getUser = async () => {
@@ -56,7 +56,7 @@ export const register = async (data, errorCallback) => {
   await createUserWithEmailAndPassword(auth, email, password)
     .then(async (userCredential) => {
       const user = userCredential.user;
-      await createUser(user, fullname, email);
+      await createUser(user.uid, fullname, email);
     })
     .catch((error) => {
       errorCallback({ firebase: error.message });
@@ -68,7 +68,7 @@ export const login = async (data, errorCallback) => {
   const { email, password } = data;
   await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
+      console.log("Logged successfuly");
     })
     .catch((error) => {
       errorCallback({ firebase: error.message });

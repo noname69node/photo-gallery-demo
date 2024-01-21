@@ -41,3 +41,16 @@ export const validateReset = (values) => {
 
   return errors;
 };
+
+export const validateURL = (values) => {
+  let errors = [];
+  const imageRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|svg))$/i;
+
+  if (!values.url) {
+    errors.url = "URL is required";
+  } else if (!imageRegex.test(values.url)) {
+    errors.url = "Inalid image URL";
+  }
+
+  return errors;
+};

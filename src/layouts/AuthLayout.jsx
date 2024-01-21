@@ -5,25 +5,21 @@ import { auth } from "../config/firebase.config";
 import { useUserAuth } from "../context/UserAuthContext";
 
 const AuthLayout = () => {
-  // const [user, loading, error] = useAuthState(auth);
-  const { user } = useUserAuth();
+  const { isLogged } = useUserAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
+    if (isLogged) {
       navigate("/");
     }
-    return;
-  }, [user]);
+  }, [isLogged]);
 
   return (
     <section className="auth vh-100 d-flex align-items-center">
       <div className="container ">
         <div className="row justify-content-center">
           <div className="col-md-7 col-lg-5">
-            <div className="wrap">
-              <Outlet />
-            </div>
+            <div className="wrap">{!isLogged && <Outlet />}</div>
           </div>
         </div>
       </div>

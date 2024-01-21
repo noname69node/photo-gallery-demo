@@ -7,13 +7,14 @@ import { useUserAuth } from "../../context/UserAuthContext";
 const Header = () => {
   const navigate = useNavigate();
 
-  const { user, userInfo } = useUserAuth();
+  const { user, userInfo, setIsLogged } = useUserAuth();
 
   // Logout
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
+        setIsLogged(false);
         navigate("/auth");
         console.log("Signed out successfully");
       })
@@ -41,23 +42,27 @@ const Header = () => {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="btn-group">
+            <div className="btn-group">
               <button
-                class="btn btn-light btn-sm dropdown-toggle"
+                className="btn btn-light btn-sm dropdown-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 {userInfo.fullname && userInfo.fullname}
               </button>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li class="dropdown-item">
-                  <a class="dropdown-item" href="/">
+              <ul className="dropdown-menu dropdown-menu-end">
+                <li className="dropdown-item">
+                  <a className="dropdown-item" href="/">
                     {user.email && user.email}
                   </a>
                 </li>
-                <li class="dropdown-item">
-                  <button class="dropdown-item" href="/" onClick={handleLogout}>
+                <li className="dropdown-item">
+                  <button
+                    className="dropdown-item"
+                    href="/"
+                    onClick={handleLogout}
+                  >
                     Sign out
                   </button>
                 </li>

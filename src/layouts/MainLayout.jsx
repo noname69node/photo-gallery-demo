@@ -1,13 +1,22 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Header from "../components/Header/Header";
+import { useUserAuth } from "../context/UserAuthContext";
+import { useEffect } from "react";
 
 const MainLayout = () => {
+  const { isLogged } = useUserAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLogged) {
+      navigate("/auth");
+    }
+  }, [isLogged]);
+
   return (
     <>
-      <div>
-        <Header />
-      </div>
-      <Outlet />
+      {isLogged && <Header />}
+      {isLogged && <Outlet />}
     </>
   );
 };

@@ -8,39 +8,15 @@ import SignIn from "../components/Auth/SignIn";
 import SignUp from "../components/Auth/SignUp";
 import Reset from "../components/Auth/Reset";
 
-import GalleryList from "../components/Gallery/GalleryList";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import {
-  Navigate,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
-import { useLayoutEffect, useState } from "react";
-import { useUserAuth } from "../context/UserAuthContext";
-
-function ProtectedRoutes() {
-  return [
+export const Routes = () => {
+  const r = [
     {
       path: "/",
       element: <MainLayout />,
-      children: [
-        { index: true, element: <Gallery /> },
-        {
-          path: "gallery",
-          element: <Gallery />,
-          children: [
-            { index: true, element: <GalleryList /> },
-            { path: ":imageId", element: <>with id</> },
-          ],
-        },
-      ],
+      children: [{ index: true, element: <Gallery /> }],
     },
-    { path: "*", element: <NotFound /> },
-  ];
-}
-
-function PublicRoutes() {
-  return [
     {
       path: "/auth",
       element: <AuthLayout />,
@@ -50,25 +26,10 @@ function PublicRoutes() {
         { path: "reset", element: <Reset /> },
       ],
     },
-    { path: "*", element: <Navigate to="/auth" replace /> },
+    { path: "*", element: <NotFound /> },
   ];
-}
 
-export const Routes = () => {
-  const { user } = useUserAuth();
-  const [isAllowed, setIsAllowed] = useState(false);
-
-  useLayoutEffect(() => {
-    console.log("Checking or logged in");
-    console.log(user);
-    if (user) setIsAllowed(true);
-  }, [user]);
-
-  console.log("Loading routes");
-
-  const router = createBrowserRouter(
-    user ? [...ProtectedRoutes(), ...PublicRoutes()] : [...PublicRoutes()]
-  );
+  const router = createBrowserRouter(r);
 
   return <RouterProvider router={router} />;
 };
