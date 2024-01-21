@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      .layout0 {
+      }
+      .layout0__img {
+        clip-path: circle();
+        aspect-ratio: 1/1;
+        width: 100% !important;
+      }
+      .layout1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .layout1__img {
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 9/12;
+      }
+      .layout2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .layout2__img {
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+      }
+
+      .layout3 {
+      }
+      .layout3__img {
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        width: 100% !important;
+        height: 100% !important;
+        margin-bottom: 10px;
+      }
+      .layout4 {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+      }
+      .layout4__img {
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .layout5 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .layout5__img-circle {
+        clip-path: circle();
+        aspect-ratio: 1/1;
+        height: 100% !important;
+      }
+      .layout5__img-square {
+        aspect-ratio: 1/1;
+        object-fit: cover;
+      }
+
+      .layout6 {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .layout6__left {
+        display: flex;
+        flex-flow: column;
+        gap: 10px;
+      }
+
+      .layout6__img {
+        aspect-ratio: 9/12;
+        object-fit: cover;
+        height: 100% !important;
+      }
+
+      .layout7 {
+        margin-bottom: 10px;
+      }
+
+      .layout7__top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .layout7__top__img {
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .layout8 {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .layout8__right {
+        display: flex;
+        flex-flow: column;
+        gap: 10px;
+      }
+
+      .layout8__img {
+        aspect-ratio: 9/12;
+        object-fit: cover;
+        height: 100% !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- LAYOUT 0 -->
+    <div class="container">
+      <div class="layout0">
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout0__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+      </div>
+      <!-- LAYOUT 0 END-->
+      <hr />
+      <!-- LAYOUT 1 -->
+      <div class="layout1">
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout1__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+            class="img-fluid layout1__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- LAYOUT 1 END -->
+    <hr />
+    <!-- LAYOUT 2 -->
+    <div class="container">
+      <div class="layout2">
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout2__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout2__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+            class="img-fluid layout2__img"
+            alt="Boat on Calm Water"
+          />
+        </div>
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
+            class="img-fluid layout2__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- LAYOUT 2 END -->
+    <hr />
+    <!-- LAYOUT 3 -->
+    <div class="container">
+      <div class="layout3">
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout3__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+            class="img-fluid layout3__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+      </div>
+      <!-- LAYOUT 3 END-->
+      <hr />
+      <!-- LAYOUT 4 -->
+      <div class="layout4">
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout4__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout4__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+      </div>
+      <!-- LAYOUT 4 END -->
+      <hr />
+
+      <!-- LAYOUT 5 -->
+      <div class="layout5">
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout5__img-circle"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+            class="img-fluid layout5__img-square"
+            alt="Boat on Calm Water"
+          />
+        </div>
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout5__img-square"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+        <div class="photobox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+            class="img-fluid layout5__img-circle"
+            alt="Boat on Calm Water"
+          />
+        </div>
+      </div>
+      <hr />
+      <!-- LAYOUT 5 END -->
+
+      <!-- LAYOUT 6 -->
+      <div class="layout6">
+        <div class="layout6__left">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+            class="img-fluid layout6__img"
+            alt="Boat on Calm Water"
+          />
+
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
+            class="img-fluid layout6__img"
+            alt="Wintry Mountain Landscape"
+          />
+        </div>
+
+        <div class="">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout6__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+      </div>
+      <!-- LAYOUT 6 END -->
+      <hr />
+
+      <!-- LAYOUT 7 -->
+      <div class="layout7">
+        <div class="layout7__top">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout7__top__img"
+            alt="Mountains in the Clouds"
+          />
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+            class="img-fluid layout7__top__img"
+            alt="Boat on Calm Water"
+          />
+        </div>
+        <div class="">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+            class="img-fluid layout7__top__img"
+            alt="Wintry Mountain Landscape"
+          />
+        </div>
+      </div>
+      <!-- LAYOUT 7 END -->
+      <hr />
+
+      <!-- LAYOUT 8 -->
+      <div class="layout8">
+        <div class="">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+            class="img-fluid layout8__img"
+            alt="Mountains in the Clouds"
+          />
+        </div>
+
+        <div class="layout8__right">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+            class="img-fluid layout8__img"
+            alt="Boat on Calm Water"
+          />
+
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
+            class="img-fluid layout8__img"
+            alt="Wintry Mountain Landscape"
+          />
+        </div>
+      </div>
+      <!-- LAYOUT 8 END -->
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

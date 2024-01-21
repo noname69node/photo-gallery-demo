@@ -5,7 +5,9 @@ const Layout2 = ({ images }) => {
   return (
     <div className="layout2">
       {images.map((image) => {
-        return <Photo key={image.id} image={image} />;
+        return (
+          <Photo className={"layout2__img"} key={image.id} image={image} />
+        );
       })}
     </div>
   );

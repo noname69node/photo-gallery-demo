@@ -3,9 +3,15 @@ import Photo from "../Photo";
 
 const Layout1 = ({ images }) => {
   return (
-    <div className="layout1">
+    <div class="layout1">
       {images.map((image) => {
-        return <Photo key={image.id} image={image} />;
+        return (
+          <Photo
+            className="img-fluid layout1__img"
+            key={image.id}
+            image={image}
+          />
+        );
       })}
     </div>
   );
