@@ -3,7 +3,7 @@ import Photo from "../Photo";
 
 const Layout5 = ({ images }) => {
   return (
-    <div className="layout5">
+    <div className="layout layout5">
       {images.map((image, index) => {
         let cla;
 

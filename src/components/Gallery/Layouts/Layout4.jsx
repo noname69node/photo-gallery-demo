@@ -4,7 +4,7 @@ import Photo from "../Photo";
 
 const Layout4 = ({ images }) => {
   return (
-    <div className="layout4">
+    <div className="layout layout4">
       {images.map((image) => {
         return (
           <Photo className={"layout4__img"} key={image.id} image={image} />

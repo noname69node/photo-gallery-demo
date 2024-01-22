@@ -27,7 +27,7 @@ const GalleryList = ({ images, layout }) => {
   const SelectedLayout = layoutComponents[layout] || Layout4; // Default to Layout0 if layout is not found
 
   return (
-    <div className="container layout">
+    <div className="container">
       <SelectedLayout images={images}></SelectedLayout>
     </div>
   );

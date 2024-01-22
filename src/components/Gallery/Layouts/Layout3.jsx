@@ -3,7 +3,7 @@ import Photo from "../Photo";
 
 const Layout3 = ({ images }) => {
   return (
-    <div className="layout3">
+    <div className="layout layout3">
       {images.map((image) => {
         return <Photo className="layout3__img" key={image.id} image={image} />;
       })}
