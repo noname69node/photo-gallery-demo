@@ -2,6 +2,8 @@
 
 ## Todo
 
-[-] Layout 7, 8, 9
-[-] Fulscreen on image click
-[-] URL input validation
+- [ ] Layout 7, 8, 9
+- [ ] Fulscreen on image click
+- [ ] URL input validation
+- [ ] Update SCSS
+- [ ] Clean code
