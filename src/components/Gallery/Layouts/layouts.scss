@@ -1,8 +1,6 @@
 .photo {
     position: relative;
-
 }
-
 
 .delete-button {
     position: absolute;
@@ -42,8 +40,6 @@
     }
 }
 
-
-
 .layout2 {
     grid-template-columns: 1fr 1fr;
 
@@ -65,7 +61,6 @@
     }
 }
 
-
 .layout4 {
     grid-template-rows: 1fr 1fr;
 
@@ -76,8 +71,6 @@
         height: 100% !important;
     }
 }
-
-
 
 .layout5 {
     grid-template-columns: 1fr 1fr;
@@ -92,10 +85,7 @@
         aspect-ratio: 1/1;
         object-fit: cover;
     }
-
 }
-
-
 
 .layout6 {
     grid-template-columns: 1fr 2fr;
@@ -115,39 +105,19 @@
     }
 }
 
+.layout7 {
+    &__top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
 
-
-.layout7 {}
-
-.layout7__top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+        &__img {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
 }
-
-.layout7__top__img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    width: 100%;
-}
-
-// .layout7 {
-//     margin-bottom: 10px;
-
-//     &__top {
-//         display: grid;
-//         grid-template-columns: 1fr 1fr;
-//         gap: 10px;
-//         margin-bottom: 10px;
-
-//         &__top__img {
-//             aspect-ratio: 16/9;
-//             object-fit: cover;
-//             width: 100%;
-//         }
-//     }
-// }
-
 
 .layout8 {
     grid-template-columns: 2fr 1fr;

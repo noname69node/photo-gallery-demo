@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { BsTrash3Fill } from "react-icons/bs";
 import { deletePhoto } from "../../services/photo.service";
 

@@ -13,6 +13,7 @@ import {
   createBrowserRouter,
   createHashRouter,
 } from "react-router-dom";
+import Profile from "../pages/Profile/Profile";
 
 export const Routes = () => {
   const r = [
@@ -20,6 +21,10 @@ export const Routes = () => {
       path: "/",
       element: <MainLayout />,
       children: [{ index: true, element: <Gallery /> }],
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
     },
     {
       path: "/auth",

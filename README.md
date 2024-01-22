@@ -2,7 +2,7 @@
 
 ## Todo
 
-- [ ] Layout 7, 8, 9
+- [x] Layout 7, 8, 9
 - [ ] Fulscreen on image click
 - [ ] URL input validation
 - [ ] Update SCSS

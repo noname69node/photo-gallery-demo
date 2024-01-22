@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { auth } from "../../config/firebase.config";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/UserAuthContext";
 
 const Header = () => {
@@ -24,9 +24,9 @@ const Header = () => {
       <header>
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" to="/">
               Holliday Photos
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -49,9 +49,9 @@ const Header = () => {
               </button>
               <ul className="dropdown-menu dropdown-menu-end">
                 <li className="dropdown-item">
-                  <a className="dropdown-item" href="/">
+                  <Link className="dropdown-item" to="/profile">
                     {user.email && user.email}
-                  </a>
+                  </Link>
                 </li>
                 <li className="dropdown-item">
                   <button
